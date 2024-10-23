@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>股票預測</title>
+</head>
+<body>
+    <h1>股票預測</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">選擇 CSV 檔案：</label>
+        <input type="file" name="file" accept=".csv" required>
+        <button type="submit">上傳並預測</button>
+    </form>
+    {% if image_path %}
+        <h2>預測結果</h2>
+        <img src="{{ image_path }}" alt="Stock Price Prediction">
+    {% endif %}
+</body>
+</html>
